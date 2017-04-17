@@ -1,0 +1,100 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="The weather on Saturday at your local clubs">
+  <meta name="keywords" content="Cricket,Club,Weather,saturday, rain, amount,JavaScript, nodejs, yrno,yr.no">
+  <meta name="author" content="Simon Andersson">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Loans Payment Calculator</title>
+  <script src="/js/jquery-3.2.1.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Student Loan Calculator</h1>
+      <p>Simple and without the bs</p>
+      <div class="row">
+        <div class="col-lg-2 col-md-2 col-xs-4" id="leftcol">
+          <h4 class="Thing">Tuition Fee</h4>
+          <div class="pounds">
+          <h4>£ </h4 >
+          </div>
+          <div>
+            <input name="input" id="tuition_fee_input" type="text" value="9250">
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-xs-4" id="leftcol">
+          <h4 class="Thing">Maintenance Loan</h4>
+          <div class="pounds">
+          <h4>£ </h4 >
+          </div>
+          <input name="input" id="maintenance" type="text" value="8430">
+        </div>
+
+      <div class="col-lg-2 col-md-2 col-xs-4" id="leftcol">
+        <h4 class="Thing">Years of Degree</h4>
+        <input name="input" id="years" type="text" value="3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-2 col-xs-4" id="leftcol">
+        <h4>Total<h4>
+        <div class="pounds">
+        <h4>£</h4 >
+        </div>
+          <h4 id="total">41250</h4>
+
+      </div>
+    </div>
+
+
+    </div>
+  </section>
+
+
+  <main>
+    <div class="container">
+      <div class="jumbotron text-center">
+        Simple website to calculate student loans
+      </div>
+    </div>
+  </main>
+  <script>
+    $('#tuition_fee_input').on('keyup', function(e) {
+      var tuition = parseInt($(this).val().replace(/\,/g, ''));
+      var maintenance = parseInt($('#maintenance').val().replace(/\,/g, ''));
+      if (isNaN(tuition)) {
+        var tuition = '';
+      }
+      $('#total').text((tuition+maintenance)*$('#years').val());
+    })
+    $('#maintenance').on('keyup', function(e) {
+      var tuition = parseInt($(this).val().replace(/\,/g, ''));
+      var maintenance = parseInt($('#maintenance').val().replace(/\,/g, ''));
+      if (isNaN(tuition)) {
+        var tuition = '';
+      }
+      $('#total').text((tuition+maintenance)*$('#years').val());
+    })
+    $('#years').on('keyup', function(e) {
+      var tuition = parseInt($('#tuition_fee_input').val().replace(/\,/g, ''));
+      var maintenance = parseInt($('#maintenance').val().replace(/\,/g, ''));
+      $('#total').text((tuition+maintenance)*$(this).val());
+    });
+  </script>
+
+  <footer>
+    <a href="https://github.com/slandersson">github</a>
+  </footer>
+
+</body>
+
+</html>
